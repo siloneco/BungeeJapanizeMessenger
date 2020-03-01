@@ -85,7 +85,7 @@ limitSharingServers: false
 
 # 注意：上の limitSharingServers が true の時のみこの設定が適用されます。
 # ここで指定したサーバー間でのみチャットを共有するようになります
-sharingServer:
+sharingServers:
 - 'lobby1'
 - 'lobby2'
 
