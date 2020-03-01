@@ -79,6 +79,16 @@ broadcastChatFormat: '%date %time &d<%sender@%senderserver> &f%msg'
 # false にしてください。
 broadcastChatLocalJapanize: true
 
+# 共有するサーバーを制限するかどうか
+# trueにした場合、下の sharingServer に記入したサーバーにのみチャットが共有されます。
+limitSharingServers: false
+
+# 注意：上の limitSharingServers が true の時のみこの設定が適用されます。
+# ここで指定したサーバー間でのみチャットを共有するようになります
+sharingServer:
+- 'lobby1'
+- 'lobby2'
+
 
 # -------------------- NGワード設定 --------------------
 

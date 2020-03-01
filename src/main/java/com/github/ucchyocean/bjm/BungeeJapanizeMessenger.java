@@ -181,6 +181,13 @@ public class BungeeJapanizeMessenger extends Plugin implements Listener {
         // 発言内容を送信する。
         for ( String server : getProxy().getServers().keySet() ) {
 
+            // limitSharingServersがtrueの場合、指定されたサーバーにのみメッセージを送信する
+            if (config.isLimitSharingServers()) {
+                if (!config.getShareServers().contains(server)) {
+                    continue;
+                }
+            }
+
             if ( server.equals(senderServer) ) {
                 continue;
             }

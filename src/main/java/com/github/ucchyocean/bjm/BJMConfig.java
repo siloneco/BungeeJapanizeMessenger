@@ -33,6 +33,8 @@ public class BJMConfig {
     private String broadcastChatFormat;
     private boolean broadcastChatLocalJapanize;
     private ArrayList<Pattern> ngwordCompiled;
+    private boolean limitSharingServers;
+    private ArrayList<String> shareServers = new ArrayList<String>();
 
     /**
      * コンストラクタ
@@ -95,7 +97,13 @@ public class BJMConfig {
                 ngwordCompiled.add(Pattern.compile(word));
             }
 
-        } catch (IOException e) {
+            // 一部のサーバーにのみ共有する際の設定
+            limitSharingServers = config.getBoolean("limitSharingServers", false);
+            if ( limitSharingServers ) {
+                shareServers.addAll(config.getStringList("shareServers"));
+            }
+
+        } catch ( IOException e ) {
             e.printStackTrace();
         }
     }
@@ -175,5 +183,19 @@ public class BJMConfig {
      */
     public ArrayList<Pattern> getNgwordCompiled() {
         return ngwordCompiled;
+    }
+
+    /**
+     * @return limitSharingServers
+     */
+    public boolean isLimitSharingServers() {
+        return limitSharingServers;
+    }
+
+    /**
+     * @return shareServers
+     */
+    public ArrayList<String> getShareServers() {
+        return shareServers;
     }
 }
