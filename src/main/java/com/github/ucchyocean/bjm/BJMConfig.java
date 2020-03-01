@@ -100,7 +100,7 @@ public class BJMConfig {
             // 一部のサーバーにのみ共有する際の設定
             limitSharingServers = config.getBoolean("limitSharingServers", false);
             if ( limitSharingServers ) {
-                shareServers.addAll(config.getStringList("shareServers"));
+                shareServers.addAll(config.getStringList("sharingServers"));
             }
 
         } catch ( IOException e ) {
