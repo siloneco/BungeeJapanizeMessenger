@@ -133,6 +133,14 @@ public class BungeeJapanizeMessenger extends Plugin implements Listener {
             return;
         }
 
+     // limitSharingServersがtrueの場合、有効化されているサーバーではない場合、そのまま無視する
+        if (config.isLimitSharingServers()) {
+            ProxiedPlayer p = (ProxiedPlayer) event.getSender();
+            if (!config.getShareServers().contains(p.getServer().getInfo().getName())) {
+                return;
+            }
+        }
+
         // 発言者と発言サーバーと発言内容の取得
         final ProxiedPlayer sender = (ProxiedPlayer)event.getSender();
         String senderServer = sender.getServer().getInfo().getName();
